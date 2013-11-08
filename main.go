@@ -100,7 +100,7 @@ func fill_maze() {
 }
 
 // retruns a rand maze similiar to prims
-func rand_maze() {
+func rands() {
 	rand.Seed( time.Now().UTC().UnixNano())
 	for _, x := range v_walls {
 		for y := range x {
@@ -129,35 +129,35 @@ func add_walls(cell pos) {
 	var w,h int
 	w=cell.x
 	h=cell.y
-	
+
 	var is_top = (cell.x==0)
 	var is_lft = (cell.y==0)
 	var is_bot = (cell.x==height-1)
- 	var is_rgt = (cell.y==width-1)
- 	
- 	if (DEBUG) {
+	var is_rgt = (cell.y==width-1)
+
+	if (DEBUG) {
 		print("x ", cell.x , " y ", cell.y,"\n")
 		print("t: ",is_top," b: ",is_bot," l: ",is_lft," r: ",is_rgt,"\n")
- 		print(len(h_walls)," |[0] ",len(h_walls[0]),"\n")
-	 	print(len(v_walls)," |[0] ",len(v_walls[0]),"\n")
+    print(len(h_walls)," |[0] ",len(h_walls[0]),"\n")
+		print(len(v_walls)," |[0] ",len(v_walls[0]),"\n")
 	}
 
- 	if (is_top) {
- 		push_wall(h_walls[w][h])
- 	}else if (is_bot) {
- 		push_wall(h_walls[w-1][h])
- 	}else {
- 		push_wall(h_walls[w][h])
- 		push_wall(h_walls[w-1][h])
- 	}
- 	if (is_lft) {
- 		push_wall(v_walls[w][h])
- 	}else if (is_rgt) {
- 		push_wall(v_walls[w][h-1])
- 	}else {
- 		push_wall(v_walls[w][h])
- 		push_wall(v_walls[w][h-1])
- 	}
+	if (is_top) {
+		push_wall(h_walls[w][h])
+	}else if (is_bot) {
+		push_wall(h_walls[w-1][h])
+	}else {
+		push_wall(h_walls[w][h])
+		push_wall(h_walls[w-1][h])
+	}
+	if (is_lft) {
+		push_wall(v_walls[w][h])
+	}else if (is_rgt) {
+		push_wall(v_walls[w][h-1])
+	}else {
+		push_wall(v_walls[w][h])
+		push_wall(v_walls[w][h-1])
+	}
 }
 
 func prims() {
@@ -172,7 +172,7 @@ func prims() {
 	cell = pos{rand.Intn(height),rand.Intn(width)}
 	my_maze[cell.x][cell.y] = 1
 	add_walls(cell)
-	
+
 	//	While there are walls in the list:
 	for (wall_list.Len()>0) {
 		rand.Seed( time.Now().UTC().UnixNano())
@@ -231,7 +231,7 @@ func prims() {
 			}
 			ctr+=1
 		}
-	}		
+	}
 }
 
 func make_maze() {
@@ -325,7 +325,7 @@ func draw() {
 		gl.Rotated(view_roty, 0.0, 1.0, 0.0)
 		gl.Rotated(view_rotz, 0.0, 0.0, 1.0)
 		gl.Translated(0.0, 0.0, view_z)
-	
+
 		for i := range boxes {
 			gl.PushMatrix() // CARGOCULT
 			gl.CallList(boxes[i])

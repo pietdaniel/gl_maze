@@ -8,3 +8,10 @@ Getting this to go run is easy:<br>
 `go get github.com/banthar/Go-SDL/sdl`<br>
 `go get github.com/go-gl/gl`<br>
 `go run main.go`<br>
+
+
+TODO:<br>
+Recursive Backtracker
+Hunt and Kill
+Growing Tree
+
