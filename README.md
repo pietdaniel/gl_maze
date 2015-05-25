@@ -9,6 +9,25 @@ Getting this to go run is easy:<br>
 `go get github.com/go-gl/gl/v2.1/gl`<br>
 `go run main.go`<br>
 
+#### Keys
+```
+i: zoom in
+o: zoom out
+escape: exit
+UP: + rotate x
+DOWN: - rotate x
+LEFT: + rotate y
+RIGHT: - rotate y
+z: - rotate z
+shift + z: + rotate z
+w: + translate z
+s: - translate z
+d: + translate x
+a: - translate x
+q: + transalte y
+e: - translate y
+```
+
 ![](ss.png)
 
 
